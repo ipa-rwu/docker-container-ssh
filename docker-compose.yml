@@ -5,29 +5,29 @@ networks:
       config:
         - subnet: 172.20.0.0/24
 services:
-  f-app:
+  melodic:
     image: shh-test:latest
     tty: true
-    container_name: f-app
-    hostname: f-app.info.my
+    container_name: melodic
+    hostname: melodic.info.my
     ports:
       - "22:22"
     networks:
       my-ntwk:
         ipv4_address: 172.20.0.5
     extra_hosts:
-      - "f-db.info.my:172.20.0.6"
+      - "frontend.info.my:172.20.0.6"
       - "p-app.info.my:172.20.0.7"
       - "p-db.info.my:172.20.0.8"
     depends_on:
-      - f-db
+      - frontend
       - p-app
       - p-db
-  f-db:
+  frontend:
     image: shh-test:latest
     tty: true
-    container_name: f-db
-    hostname: f-db.info.my
+    container_name: frontend
+    hostname: frontend.info.my
     networks:
       my-ntwk:
         ipv4_address: 172.20.0.6
