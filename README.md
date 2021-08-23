@@ -1,15 +1,19 @@
 # docker-container-ssh
 Allow container to SSH in docker-compose networking and outside of the network
 
-## To build container
+## To build image
 ```
-docker-compose build
+docker build -t shh-test:latest
+```
+## To start container
+```
+docker-compose up
 ```
 
 ### To run and test ssh between container
 
 ```
-./test.ss
+./test.sh
 ```
 
 ### Output of test script
